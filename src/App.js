@@ -67,6 +67,9 @@ function App() {
         }
     ])
 
+    const createNewBook = (newBook) => {
+        setBooks([...books, newBook])
+    }
 
 
   return (
@@ -74,7 +77,7 @@ function App() {
         <PersistGate persistor={persistor}>
           <div className="App" >
               <h2>Добавить книгу</h2>
-              <CustomForm/>
+              <CustomForm createNewBook={createNewBook}/>
               <CatalogYear books={books} years={years}  />
           </div>
         </PersistGate>
