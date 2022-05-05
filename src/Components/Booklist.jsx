@@ -1,14 +1,16 @@
+// потом это удалить
+
 import React from 'react';
 import {useDispatch} from "react-redux";
-import BookItem from "./BookItem";
+import BookItem from "./BookItem/BookItem";
 
-const Booklist = ({books}) => {
+const Booklist = ({books, deleteBook}) => {
     const dispatch = useDispatch();
 
     return (
         <div>
             {books.map((book, index) =>
-                <BookItem number={index+1} book={book} key={book.id}/>
+                <BookItem number={index+1} book={book} key={book.id} deleteBook={deleteBook}/>
             )}
         </div>
     );
@@ -26,4 +28,4 @@ export default Booklist;
 // года из массива с годами и из массива с книгами, добавлять в этот список..
 // // 3. заработало, но отображает все в одном,
 // как именно сделать чтобы отображалось только в том годе не знаю,
-// изучить filter, может с ним как то можно сделать
+// изучить Filter, может с ним как то можно сделать

@@ -1,10 +1,11 @@
 import React from 'react';
+import DeleteButton from "./DeleteButton";
 
-const BookItem = ({book,number}) => {
+const BookItem = ({book,number, onDeleteChat}) => {
     return (
         <div>
             <div>
-                <strong>{number}. Название книги: {book.name}</strong>
+                <strong>{number}.{book.name}</strong>
                 <div>
                     Автор книги: {book.author}
                 </div>
@@ -19,8 +20,9 @@ const BookItem = ({book,number}) => {
                 </div>
             </div>
             <div>
-                <button>Удалить книгу</button>
+                {/*<button onClick={() => onDeleteChat(book)}>Удалить книгу</button>*/}
             </div>
+            <DeleteButton id={book.id} onClick={onDeleteChat}/>
         </div>
     );
 };

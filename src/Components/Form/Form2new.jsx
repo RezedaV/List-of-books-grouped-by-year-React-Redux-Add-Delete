@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import s from './Form.module.css'
 
-const CustomForm = ({createNewBook}) => {
+const CustomForm2New = ({createNewBook}) => {
     const [name, setName] = useState('');
     const [author, setAuthor] = useState('');
     const [year, setYear] = useState('');
@@ -168,7 +168,7 @@ const CustomForm = ({createNewBook}) => {
     )
 };
 
-export default CustomForm;
+export default CustomForm2New;
 
 
 
