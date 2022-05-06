@@ -73,16 +73,15 @@ function App() {
     // ])
 
     const createNewBook = (newBook) => {
-        // yearToBooks["noYear"] =[newBook]; // и это работает, но данные выводятся только после нажатия на кнопку
-        // // удаления например
-
+        setYearToBooks((prevYearToBooks) => ({
+            ...prevYearToBooks,
+            [newBook.year]: [newBook],
+            //добавляется книга с годом, год тянет из новой книги
+        }));
 
         // setYearToBooks({2021:[...books, newBook]}) это работает но выводит все под 2021 годом
 
-        setYearToBooks((prevYearToBooks) => ({
-            ...prevYearToBooks,
-            ["Добавленные книги"]: [newBook],
-        }));
+
         // это если уже было с ключом 2021
         // setYearToBooks((prevYearToBooks) => ({
         //     ...prevYearToBooks,
@@ -129,18 +128,39 @@ function App() {
 
     // }
 
-    const onDeleteChat = (idToDelete) => {
-        // const newBooks = yearToBooks.noYear.filter(b => b.id !== book.id)
-        // setYearToBooks(newBooks);
+    // понять как работает метод filter..
 
-        // const newBooks = yearToBooks["year"].name
+    // const onDeleteChat = (idToDelete) => {
+    //     // const newBooks = yearToBooks.noYear.filter(b => b.id !== book.id)
+    //     // setYearToBooks(newBooks);
+    //
+    //     // const newBooks = yearToBooks["year"].name
+    //
+    //
+    //     const newMessageList = {...yearToBooks}
+    //     delete yearToBooks.key[idToDelete];
+    //     setYearToBooks(newMessageList)
+    //
+    //     console.log(newMessageList)
+    // }
 
+    const onDeleteChat = book => {
+        alert(book.id)
+        const temp = {...yearToBooks};
+        // temp.Object.keys(yearToBooks).splice([book], 1)
 
-        const newMessageList = {...yearToBooks.noYear}
-        delete yearToBooks.noYear[idToDelete];
-        setYearToBooks(newMessageList)
+        //удаляет только под 2021 годом
 
-        console.log(newMessageList)
+        // temp[book.year].filter((b) => b.id !== book.id)
+        temp[book.year] = temp[book.year].filter((b) => b.id !== book.id)
+        console.log(temp)
+        setYearToBooks(temp)
+
+        // const newMessageList = {...yearToBooks}
+        //     delete yearToBooks.noYear[book.id];
+        //     setYearToBooks(newMessageList)
+        //
+        //     console.log(newMessageList)
     }
 
 
@@ -197,7 +217,7 @@ function App() {
             {   id:5,
                 name:'Чистый код: создание, анализ и рефакторинг',
                 author:'Роберт Мартин',
-                year: '',
+                year: 'noYear',
                 rating: 5,
                 isbn:'978-5-496-00487-9'
             },
@@ -210,7 +230,12 @@ function App() {
           <div className="App" >
               <Form2new createNewBook={createNewBook}/>
               <hr/>
-              <YearGroup yearToBooks={yearToBooks} onDeleteChat={onDeleteChat}/>
+              <YearGroup
+                  yearToBooks={yearToBooks}
+                  // onDeleteChat={onDeleteChat}
+                  onDeleteChat ={onDeleteChat}
+              />
+
 
               {/*<ul>*/}
               {/*    {Object.keys(yearToBooks).map(year => (*/}

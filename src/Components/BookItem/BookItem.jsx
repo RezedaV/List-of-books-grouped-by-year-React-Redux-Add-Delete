@@ -20,9 +20,10 @@ const BookItem = ({book,number, onDeleteChat}) => {
                 </div>
             </div>
             <div>
-                {/*<button onClick={() => onDeleteChat(book)}>Удалить книгу</button>*/}
+                <button onClick={() => onDeleteChat(book)}>Удалить книгу</button>
+                {/*<button onClick={() => alert('work')}>Удалить книгу</button>*/}
             </div>
-            <DeleteButton id={book.id} onClick={onDeleteChat}/>
+            {/*<DeleteButton id={book.id} onClick={onDeleteChat}/>*/}
         </div>
     );
 };

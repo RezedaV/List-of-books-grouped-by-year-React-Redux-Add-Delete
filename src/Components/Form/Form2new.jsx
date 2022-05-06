@@ -133,7 +133,7 @@ const CustomForm2New = ({createNewBook}) => {
                 <input
                     id="year"
                     name="year"
-                    type="number"
+                    type="text"
                     value={year}
                     onBlur={e => blurHandler(e)}
                     onChange={e => yearHandler(e)}
