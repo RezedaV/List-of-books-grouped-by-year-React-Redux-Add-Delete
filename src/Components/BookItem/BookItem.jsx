@@ -1,9 +1,11 @@
 import React from 'react';
-import DeleteButton from "./DeleteButton";
+import MyButton from "../MyButton/MyButton";
+import s from './BookItem.module.css'
+
 
 const BookItem = ({book,number, onDeleteChat}) => {
     return (
-        <div>
+        <div className={s.bookItem}>
             <div>
                 <strong>{number}.{book.name}</strong>
                 <div>
@@ -20,10 +22,8 @@ const BookItem = ({book,number, onDeleteChat}) => {
                 </div>
             </div>
             <div>
-                <button onClick={() => onDeleteChat(book)}>Удалить книгу</button>
-                {/*<button onClick={() => alert('work')}>Удалить книгу</button>*/}
+                <MyButton onClick={() => onDeleteChat(book)}>Удалить книгу</MyButton>
             </div>
-            {/*<DeleteButton id={book.id} onClick={onDeleteChat}/>*/}
         </div>
     );
 };

@@ -6,11 +6,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #292F3F;
-  color: white;
+  background: #f3d123;
+  color: black;
   font-family: Helvetica;
   font-style: normal;
   font-weight: normal;
+
   font-size: 20px;
   letter-spacing: 1px;
   text-decoration: none;

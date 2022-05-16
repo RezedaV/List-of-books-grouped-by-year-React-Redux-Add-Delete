@@ -9,3 +9,28 @@
     margin-top: 5px;
     font-size: 15px;
 }
+
+.form input{
+    border-radius: 7px;
+    height: 30px;
+    width: 400px;
+    outline: none;
+    padding-left: 20px;
+    margin-bottom: 5px;
+}
+
+.formBlock{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formBlock button{
+    margin-top: 15px;
+}
+
+@media (max-width: 768px){
+    .form input{
+        width: 280px;
+    }
+}
