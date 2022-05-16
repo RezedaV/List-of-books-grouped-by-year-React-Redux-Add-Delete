@@ -34,7 +34,7 @@ function BookBlocks() {
     //     }
     //     getBooks();
     //     //изменить потом на return getBooks;
-    // }, [])  // (убирать books чтобы посмотреть как работает сортировка)
+    // }, [books])
     //
 
 
@@ -44,8 +44,7 @@ function BookBlocks() {
         // setYearToBooks((prevYearToBooks) => ({
         //     ...prevYearToBooks,
         //     [newBook.year]: [newBook],
-        //     //добавляется книга с годом, год тянет из новой книги
-        //     // если не писать год то не удаляет его потом, надо сделать чтобы добавлялось автоматом noYear
+        //     //добавляется книга, год тянет из новой созданной книги
         // }));
         dispatch(addBook(newBook));
     }
@@ -53,36 +52,17 @@ function BookBlocks() {
     const onDeleteChat = book => {
         // const temp = {...yearToBooks};
         // temp[book.year] = temp[book.year].filter((b) => b.id !== book.id)
-        // console.log(temp)
         // setYearToBooks(temp)
         dispatch(deleteBook(book));
     }
     // по правильному если пустой год,то и его нужно как то удалять(если успею сделать)
 
 
-    //сортировка
-    // const sortPosts = (sort, book) => {
-    //     setSelectedSort(sort)
-    //     // const temp = {...yearToBooks};
-    //     // temp[book.name] = {...yearToBooks}[2021].sort((a,b) => a[sort].localeCompare(b[sort]))
-    //     setYearToBooks([{...yearToBooks}["2011"]].sort((a,b) => a[sort].localeCompare(b[sort])))
-    //     // setYearToBooks(temp)
-    // }
 
     return (
         <div>
             <Form createNewBook={createNewBook}/>
             <hr/>
-            {/*<div>*/}
-            {/*    <Select*/}
-            {/*        value={selectedSort}*/}
-            {/*        onChange={sortPosts}*/}
-            {/*        defaultValue="Сортировка по"*/}
-            {/*        options={[*/}
-            {/*              {value: 'name', name: 'По наименованию'},*/}
-            {/*        ]}*/}
-            {/*    />*/}
-            {/*</div>*/}
             <YearGroup
                 yearToBooks={yearToBooks}
                 onDeleteChat ={onDeleteChat}

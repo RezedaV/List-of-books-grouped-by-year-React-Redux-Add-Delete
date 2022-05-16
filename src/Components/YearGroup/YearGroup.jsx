@@ -1,9 +1,10 @@
 import React from 'react';
 import BookGroup from "../BookGroup/BookGroup";
+import s from './YearGroup.module.css'
 
 const YearGroup = ({yearToBooks, onDeleteChat}) => {
     return (
-        <ul>
+        <ul className={s.yearGroup}>
             {Object.keys(yearToBooks).map(year => (
                 <li className='yearGroup' key={year}>
                     <div>{year}</div>
